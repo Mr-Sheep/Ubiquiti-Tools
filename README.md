@@ -6,7 +6,7 @@ Set the variables, `sshUser` and `sshPass` with your SSH cridentials and fill th
 
 ### Requirements
  - Linux OS (Haven't tested it on Windows, but I don't see why it wouldn't work)
- - Python 2.7.*
+ - Python 2.7.* (setInform can not work with python3)
  - Paramiko (Python module - Easy install with pip)
 
 ### Installation
@@ -20,7 +20,7 @@ sudo pip install paramiko pycrypto ecdsa
 ### Example
 
 ```
-kerwood@Kerwood:~$ python setInform.py 
+kerwood@Kerwood:~$ python3 setInform.py 
 
 Connecting to devices....
 

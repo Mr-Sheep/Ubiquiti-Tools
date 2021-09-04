@@ -11,14 +11,15 @@
 
 import paramiko
 
-informAddr = "http://controller-ip:8080/inform"
-sshUser = "admin"
-sshPass = "passw0rd"
+informAddr = "http://<YOUR-CONTROLLER-IP>:8080/inform"
+sshUser = "User"
+sshPass = "Password"
 
 clients = [
-    '10.0.0.10',
-    '10.0.0.11',
-    '10.0.0.12',
+# CHANGE THIS
+    '192.168.88.29',
+    '192.168.88.25',
+    '192.168.88.39',
 ]
 
 class bcolors:
@@ -27,7 +28,7 @@ class bcolors:
     ENDC = '\033[0m'
 
 
-print "\nConnecting to devices....\n"
+print("\nConnecting to devices....\n")
 
 for ip in clients:
     try:
@@ -40,12 +41,12 @@ for ip in clients:
         if stdout.channel.recv_exit_status() == 0:
             for line in stdout:
                 if "Adoption request sent to" in line:
-                    print " %s[+] Adoption request sent to %s from %s %s" % (bcolors.OKGREEN, informAddr, ip, bcolors.ENDC)
+                    print(" %s[+] Adoption request sent to %s from %s %s" % (bcolors.OKGREEN, informAddr, ip, bcolors.ENDC))
         
         
     except paramiko.AuthenticationException:
-        print " %s[-] Authentication failed on %s!%s" % (bcolors.FAIL, ip, bcolors.ENDC)
+        print(" %s[-] Authentication failed on %s!%s" % (bcolors.FAIL, ip, bcolors.ENDC))
     except:
-        print " %s[-]Something went wrong on %s!%s" % (bcolors.FAIL, ip, bcolors.ENDC)
+        print(" %s[-]Something went wrong on %s!%s" % (bcolors.FAIL, ip, bcolors.ENDC))
    
 print
