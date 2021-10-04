@@ -28,6 +28,16 @@ Connecting to devices....
  [+] Adoption request sent to http://10.0.0.130:8080/inform from 10.0.0.11 
  [+] Adoption request sent to http://10.0.0.130:8080/inform from 10.0.0.12
  ```
+### run script at startup
+
+put `autoInform.plist` under `~/Library/LaunchAgents/`, change the path in it.
+
+then run
+```
+launchctl load ~/Library/LaunchAgents/autoInform.plist
+``` 
+
+
 
 DiscoverUbiquiti.py
 =========================
@@ -106,5 +116,8 @@ IP               MAC                Model            Hostname           Version 
   this stuff is worth it, you can buy me a beer in return. 
   
      - Patrick Kerwood @ LinuxBloggen.dk
+
+  MrSheep modified some part of this script. You dont have to buy me a beer if me
+  meet, I prefer coffee lol.
 --------------------------------------------------------------------------------
 ```
